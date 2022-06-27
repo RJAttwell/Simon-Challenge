@@ -1,5 +1,6 @@
 buttonColours = ["red", "blue", "green", "yellow"];
 gamePattern = [];
+userClickedPattern = [];
 
 function nextSequence(){
 
@@ -18,8 +19,9 @@ function nextSequence(){
 };
 
 
-$("keydown", function(event){
+$("button").on("click", function(){
+
+    var userChosenColour = $(this).attr("id");
 
 
-    
-})
+});
