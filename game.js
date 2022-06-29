@@ -2,6 +2,7 @@ buttonColours = ["red", "blue", "green", "yellow"];
 gamePattern = [];
 userClickedPattern = [];
 
+//Next Sequence Function
 function nextSequence(){
 
     var randomNum = Math.floor(Math.random()* 4);
@@ -13,15 +14,34 @@ function nextSequence(){
     $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
 
     //Play a mp3 file associated with that colour from sounds folder
-    var randomSound = new Audio("sounds/" + randomChosenColour + ".mp3");
-    randomSound.play(); 
+    playSound(randomChosenColour);
 
 };
 
 
-$("button").on("click", function(){
+$(".btn").click(function(){
 
     var userChosenColour = $(this).attr("id");
+    userClickedPattern.push(userChosenColour);
 
+    playSound(userChosenColour);
+    animatePress(userChosenColour);
 
 });
+
+//Play Sound Function
+function playSound(name){
+    var randomSound = new Audio("sounds/" + randomChosenColour + ".mp3");
+    randomSound.play(); 
+};
+
+
+//Function to animate buttons
+function animatePress(currentColour){
+
+    $("#" + currentColour).addClass("pressed");
+
+    setTimeout(function(){
+        $("#" + currentColour).removeClass("pressed");
+       }, 100);
+};
