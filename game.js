@@ -67,7 +67,7 @@ function checkAnswer(currentLevel){
 
     }else{
 
-        console.log("False")
+        console.log("Fail")
 
         //GAME OVER
         playSound("wrong");
@@ -78,7 +78,7 @@ function checkAnswer(currentLevel){
             $("body").removeClass("game-over");
         }, 200);
         
-        $("level-title").html("Game Over, Press Any Key To Restart");
+        $("level-title").text("Game Over, Press Any Key To Restart");
     
         //Call the start over function to reset the game if the answer is wrong
         startOver();
